@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta key="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rifi</title>
+  <link rel="stylesheet" href="../static/style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<script>
+  // function getWifi() {
+  //   fetch('./wifi/getWifi')
+  //     .then(data => data.json())
+  //     .then(res => {
+  //       console.log(res)
+  //       res.forEach(e => {
+  //         var h4 = document.createElement('h4')
+  //         h4.innerHTML = e
+  //         h4.style.fontFamily = 'sans-serif'
+  //         h4.style.fontSize = '10px'
+  //         document.getElementById('display-wifi').appendChild(h4)
+  //       });
+  //     })
+  // }
+  function mysubmit(key) {
+    fetch('./press?key=' + key)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (!data.press) {
+          alert("Error in processing button");
+        }
+        // console.log(data);
+      });
+  }
+</script>
+
+<body>
+  <div class="topLayout">
+    <button onclick="mysubmit('power')" class="mute1 cta"></button>
+    <button onclick="mysubmit('volumemute')" class="mute2 cta"></button>
+  </div>
+
+  <!-- <div>
+    <button onclick="getWifi()" class="material-icons">
+      wifi
+    </button>
+  </div>
+  <div id="display-wifi"></div> -->
+
+  <div class="wrapper">
+    <!-- <button onclick="mysubmit('volumemute')"    class="mute cta" ></button> -->
+
+    <button onclick="mysubmit('volumeup')" class="two cta"></button>
+    <button onclick="mysubmit('nexttrack')" class="four cta"></button>
+    <button onclick="mysubmit('prevtrack')" class="three cta"></button>
+    <button onclick="mysubmit('volumedown')" class="five cta"></button>
+    <button onclick="mysubmit('playpause')" class="six cta"></button>
+  </div>
+
+  <div class="multimedia_wrapper">
+    <button onclick="mysubmit('left')" class="leftArrow cta"></button>
+    <button onclick="mysubmit('up')" class="up cta"></button>
+    <button onclick="mysubmit('space')" class="space cta"></button>
+    <button onclick="mysubmit('down')" class="down cta"></button>
+    <button onclick="mysubmit('right')" class="rightArrow cta"></button>
+
+  </div>
+</body>
+
+</html>
